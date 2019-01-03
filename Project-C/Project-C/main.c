@@ -23,8 +23,6 @@ int main(int argc, const char * argv[]) {
     People *p9 = newPeople(newString("小兔"), newInteger(22));
     People *p10 = newPeople(newString("新人"), newInteger(23));
     
-    
-    
     //增加元素
     addElement(arr, (Object *)p0);
     addElement(arr, (Object *)p1);
@@ -53,22 +51,21 @@ int main(int argc, const char * argv[]) {
     
     printf("增加10个元素\n");
     printArray(arr);
+    
     printf("删除第3个元素\n");
-    //删除第数组中某一个元素
     removeIndexAt(arr, 3);
     printArray(arr);
+    
     printf("插入P10成为第4个元素\n");
-    //插入
     insertIndexAt(arr, (Object *)p10, 4);
     printArray(arr);
     
     OBJECTRELEASE((Object*) p10);
     printf("查找第5个元素\n");
-    //index从0开始 查找第5个元素 index=4
     printf("位置:%d,姓名:%s,年龄:%d\n",4, getStringValue(getName((People*)getValueIndexAt(arr, 4))),getIntegerValue(getAge((People*)getValueIndexAt(arr, 4))));
-    //
-    //        //销毁数组
-    //        destroyArray(arr);
+    
+    //销毁数组
+    destroyArray(arr);
     
     return 0;
 }
